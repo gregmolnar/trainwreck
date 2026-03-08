@@ -21,6 +21,13 @@
       <p class="text-gray-600 mt-1"><%= @document.company.name %></p>
     </div>
 
+    <% if @document.uploader %>
+      <div class="mb-4">
+        <h2 class="text-lg font-semibold text-gray-700">Uploaded By</h2>
+        <p class="text-gray-600 mt-1"><%= @document.uploader.email_address %></p>
+      </div>
+    <% end %>
+
     <% if @document.file.attached? %>
       <div class="mb-4">
         <h2 class="text-lg font-semibold text-gray-700">Attached File</h2>

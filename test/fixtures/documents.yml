@@ -3,15 +3,18 @@ employee_handbook:
   description: Complete guide to company policies and procedures for all employees at Trainwreck Corporation.
   external_url: https://example.com/handbook
   company: trainwreck_corp
+  uploader: alice
 
 security_policy:
   title: Security Policy Document
   description: Internal security guidelines and best practices for handling sensitive company data.
   external_url: https://internal.example.com/security
   company: trainwreck_corp
+  uploader: alice
 
 financial_report:
   title: Q4 Financial Report
   description: Quarterly financial statements and projections for Trainwreck Corporation.
   external_url: 
   company: trainwreck_corp
+  uploader: bob

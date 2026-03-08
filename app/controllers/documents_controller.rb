@@ -17,6 +17,7 @@ class DocumentsController < ApplicationController
 
   def create
     @document = Document.new(document_params)
+    @document.uploader = Current.user
 
     if @document.save
       redirect_to @document, notice: "Document was successfully created."

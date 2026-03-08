@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_03_08_161360) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_08_165359) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
@@ -52,7 +52,9 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_08_161360) do
     t.string "external_url"
     t.string "title"
     t.datetime "updated_at", null: false
+    t.integer "uploader_id"
     t.index ["company_id"], name: "index_documents_on_company_id"
+    t.index ["uploader_id"], name: "index_documents_on_uploader_id"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -78,6 +80,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_08_161360) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "documents", "companies"
+  add_foreign_key "documents", "users", column: "uploader_id"
   add_foreign_key "sessions", "users"
   add_foreign_key "users", "companies"
 end
