@@ -4,8 +4,10 @@ alice:
   email_address: alice@trainwreck.com
   password_digest: <%= password_digest %>
   role: 1
+  company: trainwreck_corp
 
 bob:
   email_address: bob@trainwreck.com
   password_digest: <%= password_digest %>
   role: 0
+  company: trainwreck_corp

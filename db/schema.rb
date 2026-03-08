@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_03_08_160024) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_08_160640) do
+  create_table "companies", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "name"
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sessions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "ip_address"
@@ -21,13 +27,16 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_08_160024) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.integer "company_id", null: false
     t.datetime "created_at", null: false
     t.string "email_address", null: false
     t.string "password_digest", null: false
     t.integer "role", default: 0, null: false
     t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 
   add_foreign_key "sessions", "users"
+  add_foreign_key "users", "companies"
 end
