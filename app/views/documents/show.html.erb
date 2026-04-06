@@ -32,7 +32,7 @@
       <div class="mb-4">
         <h2 class="text-lg font-semibold text-gray-700">Attached File</h2>
         <p class="text-gray-600 mt-1">
-          <%= link_to @document.file.filename, url_for(@document.file), target: "_blank", class: "text-blue-600 hover:underline" %>
+          <%= link_to @document.file.filename, url_for(@document.file), class: "text-blue-600 hover:underline" %>
           (<%= number_to_human_size(@document.file.byte_size) %>)
         </p>
       </div>
