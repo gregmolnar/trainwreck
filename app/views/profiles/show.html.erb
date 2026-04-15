@@ -23,6 +23,13 @@
         <%= @user.api_key || "No API key generated yet" %>
       </p>
       <p class="text-xs text-gray-400 mt-1">This key provides full API access to your account.</p>
+      <% if @user.api_key %>
+        <div class="mt-3">
+          <p class="text-xs font-medium text-gray-500 mb-1">Example usage:</p>
+          <pre class="font-mono text-xs bg-gray-900 text-green-400 rounded px-3 py-2 overflow-x-auto whitespace-pre-wrap">curl -H "Authorization: Bearer <%= @user.api_key %>" <%= request.base_url %>/api/documents
+curl -H "Authorization: Bearer <%= @user.api_key %>" <%= request.base_url %>/api/documents/:id</pre>
+        </div>
+      <% end %>
     </div>
 
     <div>
