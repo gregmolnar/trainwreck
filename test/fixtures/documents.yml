@@ -15,6 +15,27 @@ security_policy:
 financial_report:
   title: Q4 Financial Report
   description: Quarterly financial statements and projections for Trainwreck Corporation.
-  external_url: 
+  external_url:
   company: trainwreck_corp
   uploader: bob
+
+acme_onboarding:
+  title: Onboarding Guide
+  description: New employee onboarding materials for Acme Inc.
+  external_url: https://acme.example.com/onboarding
+  company: acme_inc
+  uploader: charlie
+
+acme_nda:
+  title: Non-Disclosure Agreement
+  description: Standard NDA template used for all Acme Inc contractors and partners.
+  external_url: https://acme.example.com/nda
+  company: acme_inc
+  uploader: charlie
+
+acme_roadmap:
+  title: Product Roadmap 2025
+  description: Strategic product roadmap and feature priorities for Acme Inc.
+  external_url:
+  company: acme_inc
+  uploader: charlie

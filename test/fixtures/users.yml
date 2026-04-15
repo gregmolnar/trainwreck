@@ -11,3 +11,9 @@ bob:
   password_digest: <%= password_digest %>
   role: 0
   company: trainwreck_corp
+
+charlie:
+  email_address: charlie@acme.com
+  password_digest: <%= password_digest %>
+  role: 1
+  company: acme_inc
