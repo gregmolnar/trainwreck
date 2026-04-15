@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_13_200016) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_15_142918) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
@@ -50,10 +50,12 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_13_200016) do
     t.datetime "created_at", null: false
     t.text "description"
     t.string "external_url"
+    t.string "share_token"
     t.string "title"
     t.datetime "updated_at", null: false
     t.integer "uploader_id"
     t.index ["company_id"], name: "index_documents_on_company_id"
+    t.index ["share_token"], name: "index_documents_on_share_token"
     t.index ["uploader_id"], name: "index_documents_on_uploader_id"
   end
 

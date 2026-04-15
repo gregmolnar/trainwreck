@@ -6,7 +6,14 @@ Rails.application.routes.draw do
       get :preview_url
     end
   end
-  resource :profile, only: [:show]
+  resource :profile, only: [ :show, :edit, :update ]
+
+  namespace :admin do
+    get "/", to: redirect("/admin/users", status: 302)
+    resources :users, only: [ :index ]
+  end
+
+  get "/shared/:token", to: "documents#shared"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

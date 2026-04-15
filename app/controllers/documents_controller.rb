@@ -1,6 +1,7 @@
 require "net/http"
 
 class DocumentsController < ApplicationController
+  allow_unauthenticated_access only: [:shared]
   before_action :set_document, only: %i[show edit update destroy preview_url]
 
   def index
@@ -54,6 +55,11 @@ class DocumentsController < ApplicationController
   def destroy
     @document.destroy
     redirect_to documents_url, notice: "Document was successfully destroyed."
+  end
+
+  def shared
+    @document = Document.find_by!(share_token: params[:token])
+    render :show
   end
 
   private
