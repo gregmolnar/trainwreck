@@ -1,0 +1,21 @@
+<div class="mx-auto md:w-2/3 w-full">
+  <h1 class="font-bold text-4xl mb-4">URL Preview: <%= @document.title %></h1>
+
+  <%= form_with url: preview_url_document_path(@document), method: :get, class: "mb-6" do |f| %>
+    <div class="flex gap-2">
+      <%= f.text_field :url, value: params[:url] || @document.external_url,
+            placeholder: "Enter URL to fetch...",
+            class: "block w-full rounded-md border border-gray-300 shadow-sm px-3 py-2 focus:outline-blue-600" %>
+      <%= f.submit "Fetch", class: "rounded-lg py-2 px-5 bg-blue-600 text-white font-medium cursor-pointer" %>
+    </div>
+  <% end %>
+
+  <% if @preview_content %>
+    <div class="bg-gray-50 border rounded-lg p-4 mt-4">
+      <h2 class="font-semibold text-gray-700 mb-2">Response:</h2>
+      <pre class="text-sm text-gray-600 whitespace-pre-wrap overflow-auto max-h-96"><%= @preview_content %></pre>
+    </div>
+  <% end %>
+
+  <%= link_to "Back to document", @document, class: "mt-4 inline-block text-blue-600 hover:underline" %>
+</div>

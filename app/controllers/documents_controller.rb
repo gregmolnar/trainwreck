@@ -1,11 +1,28 @@
+require "net/http"
+
 class DocumentsController < ApplicationController
-  before_action :set_document, only: %i[show edit update destroy]
+  before_action :set_document, only: %i[show edit update destroy preview_url]
 
   def index
-    @documents = Document.all
+    if params[:q].present?
+      @documents = Document.where("title LIKE '%#{params[:q]}%'")
+    else
+      @documents = Current.user.company.documents.all
+    end
   end
 
   def show
+  end
+
+  def preview_url
+    url = params[:url].presence || @document.external_url
+    if url.present?
+      begin
+        @preview_content = Net::HTTP.get(URI(url))
+      rescue => e
+        @preview_content = "Error: #{e.message}"
+      end
+    end
   end
 
   def new

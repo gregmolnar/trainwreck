@@ -7,4 +7,12 @@ class User < ApplicationRecord
   normalizes :email_address, with: ->(e) { e.strip.downcase }
 
   enum :role, { normal: 0, admin: 1 }
+
+  after_create :generate_api_key
+
+  private
+
+  def generate_api_key
+    update_column(:api_key, SecureRandom.hex(20))
+  end
 end

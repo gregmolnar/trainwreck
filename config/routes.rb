@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   resource :session
   resources :passwords, param: :token
-  resources :documents
+  resources :documents do
+    member do
+      get :preview_url
+    end
+  end
+  resource :profile, only: [:show]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
