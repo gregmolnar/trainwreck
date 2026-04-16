@@ -15,7 +15,7 @@ class Api::DocumentsController < ApplicationController
   private
 
   def authenticate_with_api_key
-    token = request.headers["Authorization"]&.removeprefix("Bearer ")
+    token = request.headers["Authorization"]&.delete_prefix("Bearer ")
     @current_api_user = token && User.find_by(api_key: token)
     unless @current_api_user
       render json: { error: "Unauthorized" }, status: :unauthorized
